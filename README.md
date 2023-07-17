@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Railsプロジェクト初期化
+```
+pwd
+# project root
+docker-compose down
+rm -rf ./app/*
+cp -f ./resource/Gemfile ./app/
+touch ./app/Gemfile.lock
+docker-compose run web rails new . --force --database=postgresql
+docker-compose build --no-cache
+```
 
-Things you may want to cover:
+## DB初期化
+```
+pwd
+# project root
+cp -f ./resource/database.yml ./app/config/
+docker-compose run web rails db:create
+```
+## WEB起動
+```
+pwd
+# project root
+docker-compose up
 
-* Ruby version
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Controller追加
+```
+docker-compose run web rails g controller user show
+```
