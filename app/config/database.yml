@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: izanami
+  password: Hogepiyo
+  pool: 5
+
+development:
+  <<: *default
+  database: izanami_dev
+  
+test:
+  <<: *default
+  database: izanami_test
+#
+production:
+  <<: *default
+  database: izanami_prod
+
