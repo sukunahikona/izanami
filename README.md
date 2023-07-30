@@ -5,9 +5,9 @@
 pwd
 # project root
 docker-compose down
-rm -rf ./app/*
-cp -f ./resource/Gemfile ./app/
-touch ./app/Gemfile.lock
+rm -rf ./src/*
+cp -f ./resource/Gemfile ./src/
+touch ./src/Gemfile.lock
 docker-compose run web rails new . --force --database=postgresql
 docker-compose build --no-cache
 ```
@@ -16,7 +16,7 @@ docker-compose build --no-cache
 ```
 pwd
 # project root
-cp -f ./resource/database.yml ./app/config/
+cp -f ./resource/database.yml ./src/config/
 docker-compose run web rails db:create
 ```
 ## WEB起動
