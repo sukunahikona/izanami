@@ -18,8 +18,10 @@ services:
       args:
         RAILS_ENV: "development"
     volumes:
-      - ./app:/izanami:rw
+      - ./src:/izanami:rw
     ports:
       - "3000:3000"
+    stdin_open: true
+    tty: true
     depends_on:
       - db
