@@ -16,7 +16,7 @@ RUN chown -R $USERNAME /usr/local/bundle
 
 # dir init
 WORKDIR /izanami
-COPY ./app/* /izanami/
+COPY ./src/* /izanami/
 RUN chown -R $USERNAME:$GROUPSNAME /izanami
 COPY ./resource/entrypoint.sh /usr/bin/
 RUN chmod a+x /usr/bin/entrypoint.sh
