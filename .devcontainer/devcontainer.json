@@ -1,0 +1,17 @@
+{
+	"name": "izanami",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "web",
+	"workspaceFolder": "/izanami",
+	"remoteUser": "admin",
+	"customizations": {
+		"vscode": {
+		  "extensions": [
+			"rebornix.ruby",
+			"KoichiSasada.vscode-rdbg"
+		  ],
+		  "settings": {
+		  }
+		}
+	  }
+}
