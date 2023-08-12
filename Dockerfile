@@ -26,4 +26,5 @@ USER $USERNAME
 RUN bundle install
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
-CMD rails s -b 0.0.0.0 -e ${RAILS_ENV}
+#CMD rails s -b 0.0.0.0 -e ${RAILS_ENV}
+CMD rdbg --open --command -- bundle exec rails server -b 0.0.0.0 -e ${RAILS_ENV}

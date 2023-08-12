@@ -38,3 +38,15 @@ docker-compose up
 ```
 docker-compose run web rails g controller dashboard show
 ```
+
+## Table追加(mygration)
+```
+docker-compose run web rails g model User
+# 以下修正
+# src/db/migrate/[自動生成ファイル]
+# 反映
+docker-compose run web rails db:migrate
+# 作り直す場合
+# railsは一旦migrationした場合、バージョンを戻して再実行する必要がある
+docker-compose run web rails db:migrate:redo
+```
