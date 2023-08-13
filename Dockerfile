@@ -3,6 +3,7 @@ RUN apt-get update -qq && apt-get install -y postgresql-client
 
 ARG RAILS_ENV="production"
 ENV RAILS_ENV=${RAILS_ENV}
+ENV RAILS_SERVE_STATIC_FILES=true
 
 # user settings
 ARG UID=1000
@@ -16,7 +17,7 @@ RUN chown -R $USERNAME /usr/local/bundle
 
 # dir init
 WORKDIR /izanami
-COPY ./src/* /izanami/
+COPY ./src /izanami/
 RUN chown -R $USERNAME:$GROUPSNAME /izanami
 COPY ./resource/entrypoint.sh /usr/bin/
 RUN chmod a+x /usr/bin/entrypoint.sh
@@ -26,5 +27,4 @@ USER $USERNAME
 RUN bundle install
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
-#CMD rails s -b 0.0.0.0 -e ${RAILS_ENV}
-CMD rdbg --open --command -- bundle exec rails server -b 0.0.0.0 -e ${RAILS_ENV}
+CMD bundle exec rails server -b 0.0.0.0 -e ${RAILS_ENV}
