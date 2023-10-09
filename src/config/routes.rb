@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'account/logout'
+  get 'account/show'
+  get 'account/login'
   get 'dashboard/show'
   post 'dashboard/create'
   put 'dashboard/update'
