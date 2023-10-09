@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post 'account/logout'
   get 'account/show'
   get 'account/login'
+  post 'account/signin'
   get 'dashboard/show'
   post 'dashboard/create'
   put 'dashboard/update'
